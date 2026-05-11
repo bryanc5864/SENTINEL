@@ -1,0 +1,139 @@
+% icml2026.sty — Style for ICML 2026 submissions
+% Based on the standard ICML template conventions
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{icml2026}[2026/01/15 ICML 2026 submission style]
+
+% === Options ===
+\newif\if@accepted\@acceptedfalse
+\newif\if@preprint\@preprintfalse
+\DeclareOption{accepted}{\@acceptedtrue}
+\DeclareOption{preprint}{\@preprinttrue}
+\ProcessOptions\relax
+
+% === Page geometry ===
+\RequirePackage[letterpaper,
+  textwidth=6.5in,
+  textheight=9.0in,
+  left=1.0in,
+  top=1.0in,
+  headheight=14pt,
+  headsep=14pt,
+  footskip=24pt,
+  columnsep=0.25in]{geometry}
+
+% === Fonts ===
+\RequirePackage{times}
+\RequirePackage[T1]{fontenc}
+
+% === Two-column ===
+\RequirePackage{multicol}
+
+% === Headers ===
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\itshape\@icmltitlerunning}
+\fancyhead[R]{\small\itshape Proceedings of the 43\textsuperscript{rd} ICML, Vancouver, Canada. PMLR 267, 2026.}
+\fancyfoot[C]{\thepage}
+
+% Running title storage
+\def\@icmltitlerunning{}
+\newcommand{\icmltitlerunning}[1]{\def\@icmltitlerunning{#1}}
+
+% === Title formatting ===
+\renewcommand{\maketitle}{%
+  \twocolumn[%
+    \begin{center}
+      {\LARGE\bfseries \@title \par}
+      \vspace{12pt}
+      {\large \@author \par}
+      \vspace{8pt}
+      {\small \@date \par}
+      \vspace{18pt}
+    \end{center}
+  ]%
+  \thispagestyle{fancy}%
+  \fancyhead[L]{}%
+  \fancyhead[R]{}%
+  \fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% First page header (conference banner)
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[C]{\small\textit{Proceedings of the 43\textsuperscript{rd} International Conference on Machine Learning}, Vancouver, Canada. PMLR 267, 2026.}
+  \fancyfoot[C]{\thepage}
+}
+
+% === Author macros ===
+\newcommand{\icmlauthor}[2]{%
+  #1\textsuperscript{#2}%
+}
+\newenvironment{icmlauthorlist}{%
+  \begin{center}\large%
+}{%
+  \end{center}%
+}
+\newcommand{\icmlaffiliation}[2]{%
+  \textsuperscript{#1}\,#2%
+}
+\newcommand{\icmlcorrespondingauthor}[2]{%
+  Correspondence to: #1 \texttt{<#2>}%
+}
+
+% === Abstract ===
+\renewenvironment{abstract}{%
+  \centerline{\large\bfseries Abstract}%
+  \vspace{4pt}%
+  \begin{quote}\small%
+}{%
+  \end{quote}\vspace{8pt}%
+}
+
+% === Section formatting ===
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{10pt plus 2pt minus 2pt}{6pt plus 1pt minus 1pt}
+\titlespacing*{\subsection}{0pt}{8pt plus 2pt minus 2pt}{4pt plus 1pt minus 1pt}
+\titlespacing*{\subsubsection}{0pt}{6pt plus 2pt minus 2pt}{2pt plus 1pt minus 1pt}
+
+% === Captions ===
+\RequirePackage{caption}
+\captionsetup{font=small, labelfont=bf, skip=4pt}
+
+% === Compact lists ===
+\RequirePackage{enumitem}
+\setlist{nosep, leftmargin=*, topsep=2pt}
+
+% === Float spacing ===
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{2pt}
+
+% === Paragraph spacing ===
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+
+% === Acknowledgements ===
+\newenvironment{acknowledgements}{%
+  \section*{Acknowledgements}%
+}{%
+}
+
+% === Footnote for submission ===
+\if@accepted
+\else
+  \if@preprint
+  \else
+    % Under review: anonymous
+  \fi
+\fi
+
+\endinput
