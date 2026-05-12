@@ -169,7 +169,7 @@ We evaluate SENTINEL across $20$ experiments grouped under detection, ablation, 
 Per-encoder benchmarks (Table~\ref{tab:encoders}; full visual comparison in Appendix Figure~\ref{fig:bench}) place each branch ahead of or competitive with the strongest published single-stream baseline on its own held-out test set: AquaSSM at AUROC $0.916$ ($+0.052$ over MCN-LSTM); HydroViT v9 at $R^2\!=\!0.893$ on water temperature ($+0.009$ over DenseNet121); BioMotion at AUROC $1.000$ at the assay level ($+0.042$ over a Deep Autoencoder); MicroBiomeNet at macro-F$_1\!=\!0.899$ ($-0.006$ vs.\ tuned SimpleMLP); and ToxiGene at $7$-class macro-F$_1\!=\!0.877$ as a first-in-class supervised method.
 
 \begin{table}[t]
-\caption{Per-encoder benchmarks with $95\%$ CIs. Metrics: AUROC for AquaSSM/BioMotion; $R^2$ for HydroViT; macro-F$_1$ for MicroBiomeNet/ToxiGene.}
+\caption{Per-encoder benchmarks. CIs are $95\%$ where available. Metrics: AUROC for AquaSSM/BioMotion; $R^2$ for HydroViT; macro-F$_1$ for MicroBiomeNet/ToxiGene.}
 \label{tab:encoders}
 \centering
 \small
@@ -178,9 +178,9 @@ Per-encoder benchmarks (Table~\ref{tab:encoders}; full visual comparison in Appe
 \toprule
 \textbf{Encoder} & \textbf{Ours} & \textbf{Best Base.} & $\Delta$ \\
 \midrule
-AquaSSM & $.916\;[.934,.943]$ & MCN-LSTM $.864$ & $+.052$ \\
+AquaSSM & $.916$ & MCN-LSTM $.864$ & $+.052$ \\
 HydroViT v9 & $.893$ & DenseNet $.884$ & $+.009$ \\
-MicroBiomeNet & $.899\;[.903,.923]$ & SimpleMLP $.905$ & $-.006$ \\
+MicroBiomeNet & $.899$ & SimpleMLP $.905$ & $-.006$ \\
 ToxiGene v2 & $.877\;[.857,.914]$ & SimpleMLP $.890$ & $-.013$ \\
 BioMotion & $1.00\;[1.00,1.00]$ & DeepAE $.958$ & $+.042$ \\
 \midrule
@@ -193,7 +193,7 @@ BioMotion & $1.00\;[1.00,1.00]$ & DeepAE $.958$ & $+.042$ \\
 
 Full $5$-modality Perceiver~IO fusion attains \textbf{AUROC $0.9919$} on the windowed $31$-event benchmark with $95\%$ bootstrap CI $[0.9907, 0.9934]$, against $0.9429$ for the strongest single modality (sensor); the gap is statistically significant by paired permutation ($p\!=\!1.6\!\times\!10^{-3}$, $n_\text{perm}\!=\!10{,}000$). Against classical baselines on a held-out NEON anomaly subset, fusion AUROC dominates Z-score, isolation forest, and ARIMA by $\geq 0.05$; the absolute numbers differ from the windowed protocol because the protocols differ (Appendix~\ref{app:baselines}).
 
-A drop-one ablation and an exhaustive $2^5\!-\!1=31$ subset sweep clarify the fusion gain (Table~\ref{tab:ablation}; visual breakdown in Appendix Figure~\ref{fig:abl}). Removing the sensor channel costs $-0.246$ AUROC, by far the largest deletion; behavioral is next at $-0.174$, then satellite ($-0.111$), microbial ($-0.077$), and molecular ($-0.031$). Marginal contributions averaged across $15$ subset comparisons tell the same story (sensor $+0.201$, behavioral $+0.101$, satellite $+0.041$, microbial $+0.017$, molecular $+0.000$): sensor and behavioral carry most of the discriminative signal, while microbial and molecular contribute information largely redundant with the rest on detection \emph{but} crucial for source attribution. Mean detection AUROC by cardinality is $|\mathcal{M}|{=}1\!:\!0.725$, $|\mathcal{M}|{=}2\!:\!0.849$, $|\mathcal{M}|{=}3\!:\!0.913$, $|\mathcal{M}|{=}4\!:\!0.952$, $|\mathcal{M}|{=}5\!:\!0.992$.
+An exhaustive $2^5\!-\!1=31$ subset sweep and $100$ random-drop trials clarify the fusion gain (Table~\ref{tab:ablation}; visual breakdown in Appendix Figure~\ref{fig:abl}). Average marginal contributions across the random-drop trials are sensor $-0.246$, behavioral $-0.174$, satellite $-0.111$, microbial $-0.077$, and molecular $-0.031$; Shapley-style marginal contributions averaged across $15$ subset comparisons confirm the ordering (sensor $+0.201$, behavioral $+0.101$, satellite $+0.041$, microbial $+0.017$, molecular $+0.000$): sensor and behavioral carry most of the discriminative signal, while microbial and molecular contribute information largely redundant with the rest on detection \emph{but} crucial for source attribution. Mean detection AUROC by cardinality is $|\mathcal{M}|{=}1\!:\!0.725$, $|\mathcal{M}|{=}2\!:\!0.849$, $|\mathcal{M}|{=}3\!:\!0.913$, $|\mathcal{M}|{=}4\!:\!0.952$, $|\mathcal{M}|{=}5\!:\!0.992$.
 
 \begin{table}[t]
 \caption{Modality ablation: detection AUROC on the windowed 31-event benchmark. Best within each cardinality group bolded.}
