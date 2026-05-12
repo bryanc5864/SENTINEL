@@ -21,9 +21,15 @@
 \usepackage{xcolor}
 
 % Allow more floats per page to prevent figure* deferral
-\renewcommand{\dbltopfraction}{0.9}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.5}
+\renewcommand{\textfraction}{0.05}
 \renewcommand{\dblfloatpagefraction}{0.5}
-\setcounter{dbltopnumber}{2}
+\renewcommand{\floatpagefraction}{0.5}
+\setcounter{dbltopnumber}{3}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{6}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
@@ -100,9 +106,26 @@ SENTINEL is composed of five modality-specific encoders that lift raw observatio
 
 \textbf{MicroBiomeNet} (microbial) is an Aitchison-geometry transformer for compositional OTU tables (Figure~\ref{fig:microbe}). After CLR transform, attention is computed in Aitchison space with a CLR-aware batch norm; a zero-inflation gate handles sparsity, a simplex neural ODE models temporal dynamics, and a DNABERT-S~\citep{zhou2024dnaberts} sequence encoder lifts each OTU into a contextualised embedding. With $8.4$M parameters trained on $20{,}288$ Earth Microbiome Project~\citep{thompson2017earthmicrobiome} samples for 8-class aquatic-source attribution, it reaches macro-F$_1\!=\!0.899$, $-0.006$ vs.\ a tuned SimpleMLP baseline.
 
+% --- MicroBiomeNet figure: single-column portrait ---
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.85\linewidth,height=10cm,keepaspectratio]{fig_microbiomenet.jpg}
+\caption{MicroBiomeNet ($8.4$M params). CLR transform projects compositional OTU data from the Aitchison simplex into Euclidean space; a neural ODE models temporal dynamics; DNABERT-S contextualises each OTU.}
+\label{fig:microbe}
+\end{figure}
+
 \textbf{ToxiGene} (molecular) is a $145.2$M-parameter biology-constrained hierarchy network in the spirit of P-Net~\citep{elmarakeby2021pnet}: gene $\rightarrow$ pathway $\rightarrow$ process $\rightarrow$ outcome, with sparsity masks taken from Reactome and an autoencoder bottleneck that forces reconstructions through pathway nodes (Figure~\ref{fig:toxigene}). A cross-species encoder with ortholog alignment enables transfer between zebrafish, \emph{Daphnia magna}, and fathead minnow, and an information bottleneck identifies a $30$--$50$-gene panel that recovers $\geq\!90\%$ of full-panel performance for field-deployable qPCR assays. Trained on four GEO datasets and $268$\,k EPA ECOTOX records, ToxiGene reaches $7$-class macro-F$_1\!=\!0.877$. To our knowledge, no prior method directly classifies toxicant class from RNA-seq expression, so ToxiGene is first-in-class on this task.
 
 \textbf{BioMotion} (behavioral) is a diffusion-pretrained trajectory encoder. Pose tokens carry sinusoidal time embeddings and per-species keypoint configurations (\emph{Daphnia}: $12$, mussel: $8$, fish: $22$). Phase~1 trains a denoising U-Net~\citep{ho2020ddpm} on healthy concentration-response trajectories; phase~2 fine-tunes the encoder to flag LOEC/EC$_{50}$-level behavioral impairment, producing a $256$-d embedding (Figure~\ref{fig:biomotion}). Trained on $17{,}074$ EPA ECOTOX \emph{Daphnia} assays it reaches AUROC~$1.000$ at the assay level, with held-out validation AUROC~$0.962$, Cohen's $d\!=\!2.655$, and permutation $p\!<\!10^{-4}$.
+
+% --- ToxiGene + BioMotion: full-width ---
+\begin{figure*}[!t]
+\centering
+\begin{subfigure}[t]{0.52\textwidth}\includegraphics[width=\linewidth]{fig_toxigene.png}\caption{ToxiGene ($145.2$M params).}\label{fig:toxigene}\end{subfigure}\hfill
+\begin{subfigure}[t]{0.46\textwidth}\includegraphics[width=\linewidth]{fig_biomotion.jpg}\caption{BioMotion ($3$M params).}\label{fig:biomotion}\end{subfigure}
+\caption{Molecular and behavioral encoders. (a)~ToxiGene routes RNA-seq expression through a Reactome-constrained gene$\rightarrow$pathway$\rightarrow$process$\rightarrow$outcome hierarchy with sparse biologically-informed connections and an autoencoder bottleneck that forces reconstructions through pathway nodes. (b)~BioMotion uses diffusion pretraining on healthy \emph{Daphnia} trajectories; at inference the denoising reconstruction error serves as a toxicant-exposure score.}
+\label{fig:enc2}
+\end{figure*}
 
 \subsection{Asynchronous Fusion and Cascade Control}
 \label{sec:cascade-fusion}
@@ -110,16 +133,6 @@ SENTINEL is composed of five modality-specific encoders that lift raw observatio
 Modality embeddings arrive asynchronously and at vastly different rates---sensor in minutes, behavioral in hours, satellite in days, microbial in weeks---so the fusion layer must reason about \emph{when} each piece of evidence was last seen. We project each embedding into a shared $256$-d space and store it in a registry indexed by modality and arrival time. The fusion layer maintains a learned latent array $L\!\in\!\mathbb{R}^{256\times 256}$ that represents the current waterway state. At query time $t$, each registered embedding $e_m(t_m)$ is weighted by an exponential decay $\exp(-\lambda_m(t-t_m))$ with learned half-lives ($\lambda_m^{-1}\!\approx$ sensor $2$\,h, behavioral $5$\,min, satellite $5$\,d, microbial $7$\,d, molecular $3$\,d), passed through a calibrated per-modality confidence gate $g_m\!\in\![0,1]$, and read into $L$ via $8$-head cross-attention; four self-attention layers then refine $L$. Heads decode to an anomaly score, an 8-class source attribution, and per-modality attention weights for interpretability.
 
 Activating all five modalities at every site is operationally infeasible, so we cast modality activation as a finite-horizon MDP. The state $s\!=\![L\,;\,m_{1{:}5}\,;\,\text{tier}\,;\,\text{cost}\,;\,\text{prior}]\!\in\!\mathbb{R}^{267}$ concatenates the latent state, modality availability flags, the current cascade tier, accumulated cost, and a coarse risk prior. The reward is $r_t = \Delta\mathrm{AUROC}_t - \beta\,c_t$ with per-modality unit costs (sensor $5$, satellite $0.5$, microbial $15$, molecular $25$, behavioral $10$). We train with PPO~\citep{schulman2017ppo} for $500$\,k timesteps and distil into a depth-$6$ decision tree on $50$\,k state--action pairs for GPU-free field deployment.
-
-% --- Architecture Fig 2: placed here (after fusion text) so it floats to next available page ---
-\begin{figure*}[t]
-\centering
-\begin{subfigure}[b]{0.22\textwidth}\centering\includegraphics[height=5.2cm]{fig_microbiomenet.jpg}\caption{MicroBiomeNet.}\label{fig:microbe}\end{subfigure}\hfill
-\begin{subfigure}[b]{0.40\textwidth}\includegraphics[width=\linewidth]{fig_toxigene.png}\caption{ToxiGene ($145.2$M params).}\label{fig:toxigene}\end{subfigure}\hfill
-\begin{subfigure}[b]{0.35\textwidth}\includegraphics[width=\linewidth]{fig_biomotion.jpg}\caption{BioMotion ($3$M params).}\label{fig:biomotion}\end{subfigure}
-\caption{Microbial, molecular, and behavioral encoders. (a)~MicroBiomeNet ($8.4$M params) applies a CLR transform to project compositional OTU data from the Aitchison simplex into Euclidean space, then integrates a neural ODE for temporal dynamics. (b)~ToxiGene routes RNA-seq expression through a Reactome-constrained gene$\rightarrow$pathway$\rightarrow$process$\rightarrow$outcome hierarchy with sparse biologically-informed connections and an autoencoder bottleneck. (c)~BioMotion uses diffusion pretraining on healthy \emph{Daphnia} trajectories and detects toxicant-level behavioral impairment as denoising reconstruction error.}
-\label{fig:enc2}
-\end{figure*}
 
 % =========================================================================
 \section{SENTINEL-DB}
