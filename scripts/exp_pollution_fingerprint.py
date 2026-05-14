@@ -13,7 +13,7 @@ For each group: mean anomaly score, quantiles, top contributing sites.
 
 Output: results/exp_pollution_fingerprint/fingerprint_results.json
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

@@ -12,7 +12,7 @@ and runs on CPU -- no GPU or model checkpoints required.
 
 Usage::
 
-    cd /home/bcheng/SENTINEL && python scripts/run_evaluation.py
+    cd /path/to/SENTINEL && python scripts/run_evaluation.py
 """
 
 from __future__ import annotations

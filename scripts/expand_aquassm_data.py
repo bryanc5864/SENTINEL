@@ -6,7 +6,7 @@ Target: 300 normal + 300 anomaly → save to data/processed/sensor/expanded_v2/
 Each file saves: values (T, 6), delta_ts (T,), labels (T,), has_anomaly (scalar)
 Format matches clean_synthetic/ exactly.
 
-Bryan Cheng, SENTINEL project, 2026
+Anonymous Author, SENTINEL project, 2026
 """
 
 import numpy as np

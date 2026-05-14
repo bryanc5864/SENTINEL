@@ -11,7 +11,7 @@ Implements transfer-learning baselines from:
 Both models evaluated on SAME paired_wq_v5.npz test split (seed=42, 70/15/15).
 Appends results to results/benchmarks/hydrovit_v8_benchmark.json.
 
-Bryan Cheng, SENTINEL project, 2026
+Anonymous Author, SENTINEL project, 2026
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset, random_split
 from torchvision.models import densenet121, resnet50, DenseNet121_Weights, ResNet50_Weights
 
-PROJECT_ROOT = Path("/home/bcheng/SENTINEL")
+PROJECT_ROOT = Path("/path/to/SENTINEL")
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 

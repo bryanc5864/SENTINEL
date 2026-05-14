@@ -17,7 +17,7 @@ Events are categorized as:
   CATEGORY B: 6 real NEON-site events (from v2)
   CATEGORY C: 21 new research-validated events (added v3)
 
-Bryan Cheng, SENTINEL project, 2026-04-13
+Anonymous Author, SENTINEL project, 2026-04-13
 """
 from __future__ import annotations
 

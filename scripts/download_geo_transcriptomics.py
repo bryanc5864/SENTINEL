@@ -5,7 +5,7 @@ Searches for gene expression datasets from aquatic model organisms
 (zebrafish, Daphnia, fathead minnow) exposed to contaminants.
 Downloads expression matrices and metadata for ToxiGene training.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

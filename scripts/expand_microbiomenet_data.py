@@ -52,7 +52,7 @@ Feature alignment:
   since the values are already approximately CLR-scaled
 - real/nrsa: 25 features -> pad to 5000 (non-zero in first 25 positions)
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json
@@ -63,7 +63,7 @@ from collections import Counter
 
 import numpy as np
 
-sys.path.insert(0, "/home/bcheng/SENTINEL")
+sys.path.insert(0, "/path/to/SENTINEL")
 
 DATA_EMP = pathlib.Path("data/processed/microbial/emp_16s")
 DATA_NARS = pathlib.Path("data/processed/microbial/nars")

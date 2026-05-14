@@ -12,7 +12,7 @@ Also adds LSTM Autoencoder for a stronger sequence-aware baseline.
 Loads SAME data split as benchmark_biomotion.py, appends to
 results/benchmarks/biomotion_benchmark.json.
 
-Bryan Cheng, SENTINEL project, 2026
+Anonymous Author, SENTINEL project, 2026
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
 from sklearn.metrics import roc_auc_score, f1_score
 
-PROJECT_ROOT = Path("/home/bcheng/SENTINEL")
+PROJECT_ROOT = Path("/path/to/SENTINEL")
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 

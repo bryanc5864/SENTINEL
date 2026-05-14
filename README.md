@@ -4,7 +4,7 @@
 
 SENTINEL is a multimodal deep learning framework for real-time water quality monitoring and contamination detection. It fuses five heterogeneous sensing modalities — physicochemical sensors, satellite imagery, microbial community profiles, molecular toxicogenomics, and organism behavioral assays — through a Perceiver IO cross-attention architecture, detecting pollution events earlier and more reliably than any single data source alone. 
 
-> **Stockholm Junior Water Prize 2026 Submission** — Austin Jin & Bryan Cheng
+> Under review. Anonymous submission.
 
 ---
 
@@ -271,4 +271,4 @@ MIT
 
 ## Authors
 
-Austin Jin and Bryan Cheng
+Anonymous Authors

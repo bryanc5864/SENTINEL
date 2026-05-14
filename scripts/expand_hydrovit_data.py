@@ -14,7 +14,7 @@ PARAM_NAMES order (from parameter_head.py):
   6=total_phosphorus, 7=dissolved_oxygen, 8=ammonia, 9=nitrate, 10=ph,
   11=water_temp, 12=phycocyanin, 13=oil_probability, 14=acdom, 15=pollution_anomaly_index
 
-MIT License -- Bryan Cheng, 2026
+MIT License -- Anonymous Author, 2026
 """
 
 import sys
@@ -23,7 +23,7 @@ from pathlib import Path
 
 import numpy as np
 
-PROJECT_ROOT = Path("/home/bcheng/SENTINEL")
+PROJECT_ROOT = Path("/path/to/SENTINEL")
 sys.path.insert(0, str(PROJECT_ROOT))
 
 DATA_DIR = PROJECT_ROOT / "data/processed/satellite"

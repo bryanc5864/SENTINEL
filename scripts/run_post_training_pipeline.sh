@@ -1,8 +1,8 @@
 #!/bin/bash
 # Post-training pipeline: runs all downstream analyses after AquaSSM full training.
-# Run from /home/bcheng/SENTINEL
+# Run from /path/to/SENTINEL
 set -e
-cd /home/bcheng/SENTINEL
+cd /path/to/SENTINEL
 
 echo "=== POST-TRAINING PIPELINE ==="
 echo "Step 1: Copy aquassm_full_best.pt to aquassm_real_best.pt"

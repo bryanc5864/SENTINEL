@@ -12,7 +12,7 @@ Output format per .npz:
   station_id: str - USGS station identifier
   has_anomaly: bool - whether any timestep in the sequence is anomalous
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

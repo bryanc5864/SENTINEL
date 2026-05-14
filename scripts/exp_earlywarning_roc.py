@@ -6,7 +6,7 @@ score first cross threshold t?  Sweep t from 0.50 to 0.99 in 0.05 steps.
 
 Output: results/exp_earlywarning/early_warning_results.json
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

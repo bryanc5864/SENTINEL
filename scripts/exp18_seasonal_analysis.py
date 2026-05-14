@@ -14,7 +14,7 @@ Output:
   results/exp18_seasonal/seasonal_results.json
   paper/figures/fig_exp18_seasonal_patterns.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

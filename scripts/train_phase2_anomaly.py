@@ -4,7 +4,7 @@
 Uses the pretrained backbone embedding + a learnable classification head.
 Loads the Phase 1 checkpoint and fine-tunes for binary anomaly detection.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

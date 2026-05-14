@@ -17,7 +17,7 @@ These 5 sites are DISTINCT from:
 Sites chosen as the 5 highest-risk NEON monitoring sites by AquaSSM max score
 from the full 32-site NEON scan.
 
-Author: Bryan Cheng, SENTINEL project, 2026-04-14
+Author: Anonymous Author, SENTINEL project, 2026-04-14
 """
 
 from __future__ import annotations

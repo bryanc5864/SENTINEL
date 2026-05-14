@@ -12,7 +12,7 @@ Best reported F1=0.93 on USGS Madison River (SpCond, Turbidity, DO).
 Loads SAME data split as benchmark_aquassm.py, adds MCN-LSTM result,
 appends to results/benchmarks/aquassm_benchmark.json.
 
-Bryan Cheng, SENTINEL project, 2026
+Anonymous Author, SENTINEL project, 2026
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ from torch.utils.data import DataLoader, ConcatDataset, random_split
 from sklearn.metrics import roc_auc_score, f1_score
 
 os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
-sys.path.insert(0, "/home/bcheng/SENTINEL")
+sys.path.insert(0, "/path/to/SENTINEL")
 
 # Re-use data loading from existing benchmark
 sys.path.insert(0, str(Path(__file__).parent))

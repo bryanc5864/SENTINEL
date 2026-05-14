@@ -7,7 +7,7 @@ indexing, quality tier assignment, and saves harmonized parquet files.
 GRQA is already semi-harmonized but uses its own parameter codes and naming.
 This script maps them to the SENTINEL canonical ontology.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

@@ -13,7 +13,7 @@ Steps:
        outcome_labels_v3_expanded.npy
        pathway_labels_v3_expanded.npy
 
-MIT License — Bryan Cheng, SENTINEL project, 2026
+MIT License — Anonymous Author, SENTINEL project, 2026
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ from pathlib import Path
 import numpy as np
 import scipy.sparse as sp
 
-PROJECT_ROOT = Path("/home/bcheng/SENTINEL")
+PROJECT_ROOT = Path("/path/to/SENTINEL")
 GEO_V3_DIR   = PROJECT_ROOT / "data" / "raw" / "molecular" / "geo_v3"
 DATA_DIR      = PROJECT_ROOT / "data" / "processed" / "molecular"
 GEO_V3_DIR.mkdir(parents=True, exist_ok=True)

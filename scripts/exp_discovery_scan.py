@@ -12,7 +12,7 @@ Per-site reporting:
   - Most recent 30-day max score
   - Alert flag if max_score > 0.9 or recent_30d_max > 0.8
 
-Author: Bryan Cheng, SENTINEL project, 2026-04-14
+Author: Anonymous Author, SENTINEL project, 2026-04-14
 """
 
 from __future__ import annotations

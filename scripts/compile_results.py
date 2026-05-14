@@ -6,7 +6,7 @@ Reads all available exp JSON results and produces:
   2. A master results summary for paper writing
   3. A critique resolution checklist
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

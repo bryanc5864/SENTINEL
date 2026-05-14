@@ -29,7 +29,7 @@ NOTE: EMP release1 biom uses rarefied data at 5,000 sequences per sample.
 
 REAL DATA ONLY — no synthetic augmentation.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

@@ -16,7 +16,7 @@ Output:
   paper/figures/fig_exp20_cascade_depth.jpg
   paper/figures/fig_exp20_lead_time_by_type.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

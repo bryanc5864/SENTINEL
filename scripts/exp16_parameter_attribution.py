@@ -9,7 +9,7 @@ Output:
   results/exp16_attribution/attribution_results.json
   paper/figures/fig_exp16_attribution_heatmap.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

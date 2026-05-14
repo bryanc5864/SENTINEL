@@ -22,7 +22,7 @@
 ## Before submitting
 
 1. **Verify OpenReview profile** for every co-author. New profiles without an institutional email take up to 2 weeks to moderate — start this immediately if not already done.
-2. **Anonymize the supplementary code snapshot:** scrub `austinjin1`, `bcheng`, "Stockholm Junior Water Prize", and the `/home/bcheng/...` checkpoint paths visible in some `results/*.json` files.
+2. **Anonymize the supplementary code snapshot:** scrub `anonymous`, `username`, "Anonymous Competition", and the `/path/to/...` checkpoint paths visible in some `results/*.json` files.
 3. **Verify the checklist** — every answer in `checklist.tex` should still be accurate after any further edits.
 
 ## Build

@@ -1,6 +1,6 @@
 {
   "benchmark": "BioMotion vs Baselines",
-  "data_dir": "/home/bcheng/SENTINEL/data/processed/behavioral_fullreal",
+  "data_dir": "/path/to/SENTINEL/data/processed/behavioral_fullreal",
   "n_train": 20028,
   "n_val": 4291,
   "n_test": 4291,

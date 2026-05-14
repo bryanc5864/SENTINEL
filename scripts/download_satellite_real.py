@@ -11,7 +11,7 @@ Strategy:
 3. For each station, search for cloud-free S2 tiles within ±3 days of WQ measurements
 4. Download 224x224 pixel patches centered on stations
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

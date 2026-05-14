@@ -24,7 +24,7 @@ Architecture motivation:
   - Multi-scale CNN features (32, 64, 128 channels) are pooled and
     concatenated to the ViT CLS token before the regression head.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

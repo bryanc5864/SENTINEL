@@ -10,7 +10,7 @@ Outputs data/processed/satellite/paired_wq.npz with:
   - tile_indices: [N]          indices into original tile list
   - metadata: dict with tile info
 
-MIT License -- Bryan Cheng, 2026
+MIT License -- Anonymous Author, 2026
 """
 
 import glob

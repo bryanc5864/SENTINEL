@@ -5,7 +5,7 @@ Source: Zenodo DOI 10.5281/zenodo.7056647
 Pre-harmonized: 17M+ records, 43 water quality parameters, global rivers.
 This is the easiest large-scale real water quality dataset to obtain.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import os

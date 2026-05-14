@@ -4,7 +4,7 @@
 The SSM is numerically fragile during fine-tuning, so we freeze it and
 only train a lightweight classification head on precomputed embeddings.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 import torch, torch.nn as nn, numpy as np, json, time
 from pathlib import Path

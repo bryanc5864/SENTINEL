@@ -5,7 +5,7 @@ All models evaluated on the SAME v5 test split (seed=42, 70/15/15).
 Primary metric: water_temp R2 (index 11).
 Secondary: mean R2 across all 16 parameters.
 
-MIT License -- Bryan Cheng, 2026
+MIT License -- Anonymous Author, 2026
 """
 
 import json
@@ -18,7 +18,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset, random_split
 
-PROJECT_ROOT = Path("/home/bcheng/SENTINEL")
+PROJECT_ROOT = Path("/path/to/SENTINEL")
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from sentinel.models.satellite_encoder.model import SatelliteEncoder

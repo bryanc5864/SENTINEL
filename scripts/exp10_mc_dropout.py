@@ -24,7 +24,7 @@ Outputs:
   - paper/figures/fig_exp10_uncertainty.jpg
   - paper/figures/fig_exp10_reliability.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

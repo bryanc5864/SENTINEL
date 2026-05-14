@@ -26,7 +26,7 @@ Outputs:
   - paper/figures/fig_exp7_cka_matrix.jpg
   - paper/figures/fig_exp7_embedding_norms.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

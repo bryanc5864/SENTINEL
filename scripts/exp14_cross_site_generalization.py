@@ -26,7 +26,7 @@ Outputs:
   - results/exp14_cross_site/cross_site_results.json
   - paper/figures/fig_exp14_cross_site.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

@@ -10,7 +10,7 @@ collecting all window scores, then compute fraction > 0.9.
 
 Output: results/exp_false_positive/false_positive_results.json
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

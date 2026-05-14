@@ -5,7 +5,7 @@ Trains the fusion layer on cached embeddings from all 5 modality encoders.
 Phase 1: Extract embeddings from trained encoders
 Phase 2: Train fusion layer with anomaly detection + source attribution
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

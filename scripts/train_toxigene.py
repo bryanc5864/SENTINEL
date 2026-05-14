@@ -14,7 +14,7 @@ Changes from v9:
   7. mixup augmentation (alpha=0.2) on training batches
 
 Same split, same corrected data as v9.
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-PROJECT_ROOT = Path("/home/bcheng/SENTINEL")
+PROJECT_ROOT = Path("/path/to/SENTINEL")
 sys.path.insert(0, str(PROJECT_ROOT))
 
 import numpy as np

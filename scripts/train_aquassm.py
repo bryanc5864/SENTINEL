@@ -9,7 +9,7 @@ Strategy:
 - Train end-to-end: backbone (lr=3e-4) + classification head (lr=1e-3).
 - 100 epochs, AdamW, cosine annealing, grad clipping.
 
-MIT License -- Bryan Cheng, 2026
+MIT License -- Anonymous Author, 2026
 """
 
 import json

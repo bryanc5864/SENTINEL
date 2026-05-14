@@ -1,6 +1,6 @@
 {
   "generated": "2026-04-14T17:17:47.127780Z",
-  "checkpoint": "/home/bcheng/SENTINEL/checkpoints/sensor/aquassm_full_best.pt",
+  "checkpoint": "/path/to/SENTINEL/checkpoints/sensor/aquassm_full_best.pt",
   "scan_start": "2025-01-01",
   "scan_end": "2026-04-14",
   "n_sites_attempted": 18,

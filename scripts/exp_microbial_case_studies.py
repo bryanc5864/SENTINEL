@@ -24,7 +24,7 @@ Anomaly risk = max probability across high-risk classes:
   4. Iowa CAFO Fecal Contamination — Raccoon River / Iowa River watershed
   5. Puget Sound Urban/Industrial Runoff — Seattle metro stormwater
 
-Author: Bryan Cheng, SENTINEL project, 2026-04-14
+Author: Anonymous Author, SENTINEL project, 2026-04-14
 """
 
 from __future__ import annotations

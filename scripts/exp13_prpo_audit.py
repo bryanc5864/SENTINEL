@@ -23,7 +23,7 @@ Outputs:
   - results/exp13_prpo_audit/prpo_audit_results.json
   - paper/figures/fig_exp13_prpo_audit.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

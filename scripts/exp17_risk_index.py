@@ -16,7 +16,7 @@ Output:
   results/exp17_risk_index/risk_index_results.json
   paper/figures/fig_exp17_risk_ranking.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

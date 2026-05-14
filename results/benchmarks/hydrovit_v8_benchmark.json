@@ -59,7 +59,7 @@
     "water_temp_r2": 0.8010499826048909
   },
   "metadata": {
-    "dataset": "/home/bcheng/SENTINEL/data/processed/satellite/paired_wq_v5.npz",
+    "dataset": "/path/to/SENTINEL/data/processed/satellite/paired_wq_v5.npz",
     "n_total": 5464,
     "n_train": 3826,
     "n_val": 819,

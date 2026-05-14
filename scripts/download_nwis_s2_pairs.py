@@ -10,7 +10,7 @@ Improvements over v2 (GRQA+WQP) dataset:
 Target: 2,000+ new pairs from up to 1,130 USGS NWIS stations.
 Combined with existing 847 pairs → 2,800+ total training samples.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

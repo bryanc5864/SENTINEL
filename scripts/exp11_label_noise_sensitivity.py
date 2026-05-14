@@ -26,7 +26,7 @@ Outputs:
   - results/exp11_label_noise/sensitivity_results.json
   - paper/figures/fig_exp11_label_noise.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

@@ -9,7 +9,7 @@ consecutive run above 0.9.
 
 Output: results/exp_temporal_persistence/persistence_results.json
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

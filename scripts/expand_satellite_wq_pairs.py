@@ -10,7 +10,7 @@ coordinates directly in the data. EPA WQP adds 2020-2024 coverage.
 
 Target: 500-2000 paired samples (up from 74).
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

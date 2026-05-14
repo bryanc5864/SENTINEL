@@ -22,7 +22,7 @@ Outputs:
   - results/exp12_integration/integration_results.json
   - paper/figures/fig_exp12_modality_gain.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

@@ -9,7 +9,7 @@ lead times vs. advisory dates.
 
 This replaces exp1_case_studies_v3.py, which used hard-coded lead times.
 
-Author: Bryan Cheng, SENTINEL project, 2026-04-14
+Author: Anonymous Author, SENTINEL project, 2026-04-14
 """
 
 from __future__ import annotations

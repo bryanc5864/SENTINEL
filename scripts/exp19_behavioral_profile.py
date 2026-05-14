@@ -15,7 +15,7 @@ Output:
   results/exp19_behavioral_profile/behavioral_results.json
   paper/figures/fig_exp19_behavioral_profiles.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

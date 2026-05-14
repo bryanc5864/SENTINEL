@@ -15,7 +15,7 @@ Why fullreal vs v2 (augmented)?
   v2 rows 1000-1800 are Gaussian synthetic augmentations.
   → fullreal = strictly the 1000 real zebrafish measurements.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

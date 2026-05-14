@@ -22,7 +22,7 @@ Output:
   data/processed/molecular/geo_zebrafish_metadata.json    — per-sample metadata
   data/processed/molecular/geo_zebrafish_summary.json     — summary stats
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations
@@ -40,8 +40,8 @@ import numpy as np
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-GEO_DIR = Path("/home/bcheng/SENTINEL/data/raw/molecular/geo_zebrafish")
-OUT_DIR = Path("/home/bcheng/SENTINEL/data/processed/molecular")
+GEO_DIR = Path("/path/to/SENTINEL/data/raw/molecular/geo_zebrafish")
+OUT_DIR = Path("/path/to/SENTINEL/data/processed/molecular")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Known outcome labels for each dataset based on chemical class

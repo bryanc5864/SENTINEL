@@ -8,7 +8,7 @@ head, and outputs a per-site anomaly timeline.
 Usage:
     python scripts/neon_anomaly_scan.py
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

@@ -13,7 +13,7 @@ Evaluates on the held-out test set with macro F1, accuracy, and per-class F1.
 
 Results saved to results/benchmarks/toxigene_fullreal_benchmark.json.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

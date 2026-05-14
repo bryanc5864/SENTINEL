@@ -24,7 +24,7 @@ Positive toxicity = any outcome predicted positive (at per-class threshold).
   4. GSE50648   — Metal exposures (Cd, Zn, Cu, Pb) whole organism
   5. GSE66257   — Dichlorvos (organophosphate pesticide) energy metabolism disruption
 
-Author: Bryan Cheng, SENTINEL project, 2026-04-14
+Author: Anonymous Author, SENTINEL project, 2026-04-14
 """
 
 from __future__ import annotations

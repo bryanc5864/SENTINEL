@@ -9,7 +9,7 @@ samples from 16 datasets + 95 class-conditional augmented).
 
 Feature selection: top 5000 by max t-statistic to keep RF/XGB tractable.
 
-Bryan Cheng, SENTINEL project, 2026
+Anonymous Author, SENTINEL project, 2026
 """
 
 from __future__ import annotations
@@ -34,7 +34,7 @@ except ImportError:
     HAS_XGB = False
     print("XGBoost not available, skipping")
 
-PROJECT_ROOT = Path("/home/bcheng/SENTINEL")
+PROJECT_ROOT = Path("/path/to/SENTINEL")
 DATA_DIR     = PROJECT_ROOT / "data" / "processed" / "molecular"
 RESULTS_PATH = PROJECT_ROOT / "checkpoints" / "molecular" / "results_ml_baselines_v3.json"
 

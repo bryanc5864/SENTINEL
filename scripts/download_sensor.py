@@ -10,7 +10,7 @@ preprocesses into AquaSSM training format (.npz).
 
 Target: 500+ stations, 5000+ sequences.
 
-MIT License -- Bryan Cheng, 2026
+MIT License -- Anonymous Author, 2026
 """
 
 import argparse
@@ -434,7 +434,7 @@ def main():
     parser = argparse.ArgumentParser(description="Download large-scale USGS NWIS sensor data")
     parser.add_argument("--states", nargs="+", default=None,
                         help="State codes to query (default: all 50 + DC)")
-    parser.add_argument("--data-dir", default="/home/bcheng/SENTINEL/data",
+    parser.add_argument("--data-dir", default="/path/to/SENTINEL/data",
                         help="Base data directory")
     parser.add_argument("--max-stations", type=int, default=2000,
                         help="Maximum stations to download")

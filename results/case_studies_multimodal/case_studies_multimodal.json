@@ -1,8 +1,8 @@
 {
   "generated": "2026-04-14T16:39:12.716374Z",
-  "sensor_checkpoint": "/home/bcheng/SENTINEL/checkpoints/sensor/aquassm_full_best.pt",
-  "satellite_checkpoint": "/home/bcheng/SENTINEL/checkpoints/satellite/hydrovit_wq_v9.pt",
-  "fusion_checkpoint": "/home/bcheng/SENTINEL/checkpoints/fusion/fusion_real_best.pt",
+  "sensor_checkpoint": "/path/to/SENTINEL/checkpoints/sensor/aquassm_full_best.pt",
+  "satellite_checkpoint": "/path/to/SENTINEL/checkpoints/satellite/hydrovit_wq_v9.pt",
+  "fusion_checkpoint": "/path/to/SENTINEL/checkpoints/fusion/fusion_real_best.pt",
   "n_events": 6,
   "statistics": {
     "sensor_mean_lead_h": 2131.93,

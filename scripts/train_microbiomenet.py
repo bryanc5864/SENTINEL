@@ -20,7 +20,7 @@ Architecture (identical to v2):
   → Transformer[256 tokens, 6L, 8H, ff=1024] → GlobalAttentionPooling
   → Linear(256→512→256→8)   [11.7M params]
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

@@ -7,7 +7,7 @@ https://www.waterqualitydata.us/
 Strategy: Download by HUC2 region (21 major basins) for key parameters.
 Focus on last 10 years to keep manageable while still getting millions of records.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

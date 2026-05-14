@@ -17,7 +17,7 @@ Output .npz format (matches existing synthetic format):
 Usage:
     python scripts/process_ecotox_behavioral.py
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

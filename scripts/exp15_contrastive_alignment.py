@@ -24,7 +24,7 @@ Outputs:
   - results/exp15_contrastive/alignment_results.json
   - paper/figures/fig_exp15_contrastive_alignment.jpg
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

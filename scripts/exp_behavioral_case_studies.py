@@ -33,7 +33,7 @@ model_sensitivity_notes.
 Each case uses trajectories from data/processed/behavioral_real/ with
 chemical-class perturbations applied to relevant ECOTOX-documented endpoints.
 
-Author: Bryan Cheng, SENTINEL project, 2026-04-14
+Author: Anonymous Author, SENTINEL project, 2026-04-14
 """
 
 from __future__ import annotations

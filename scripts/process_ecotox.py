@@ -12,7 +12,7 @@ Pipeline:
 5. Create per-chemical-organism dose-response profiles
 6. Save as training data in ToxiGene format
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import json

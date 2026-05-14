@@ -9,7 +9,7 @@ Key improvements over v6 (R²=0.760 water_temp):
   5. Longer finetuning: 150+150 epochs (vs 100+100)
   6. StepLR decay instead of fixed LR
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

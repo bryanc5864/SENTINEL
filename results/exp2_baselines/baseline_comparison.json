@@ -24,7 +24,7 @@
     "n_normal": 500,
     "n_anomalous": 500,
     "window_len": 128,
-    "data_source": "/home/bcheng/SENTINEL/data/raw/neon_aquatic/neon_DP1.20288.001_consolidated.parquet",
+    "data_source": "/path/to/SENTINEL/data/raw/neon_aquatic/neon_DP1.20288.001_consolidated.parquet",
     "label_method": "threshold_exceedance",
     "elapsed_seconds": 328.23624205589294
   }

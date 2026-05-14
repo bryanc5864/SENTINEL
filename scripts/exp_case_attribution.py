@@ -19,7 +19,7 @@ and closest parameter profile to the event type, then ablate channels.
 
 Output: results/exp_case_attribution/attribution_results.json
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 from __future__ import annotations
 

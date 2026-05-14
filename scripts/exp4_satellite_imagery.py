@@ -17,7 +17,7 @@ Only events after Sentinel-2 launch (June 2015) are eligible:
 Fallback: if Planetary Computer download fails, uses pre-extracted satellite
 embeddings from data/real_embeddings/satellite_embeddings.pt.
 
-MIT License -- Bryan Cheng, 2026
+MIT License -- Anonymous Author, 2026
 """
 
 from __future__ import annotations

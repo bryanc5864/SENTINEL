@@ -20,7 +20,7 @@ and evaluates on the SAME EMP test split.
 
 Results saved to results/benchmarks/microbiomenet_benchmark.json.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 from __future__ import annotations

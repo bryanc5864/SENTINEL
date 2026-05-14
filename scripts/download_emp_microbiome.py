@@ -14,7 +14,7 @@ The script assigns source labels based on EMPO_3 environment ontology
 and study metadata to create meaningful classification targets for
 water quality / pollution source attribution.
 
-MIT License — Bryan Cheng, 2026
+MIT License — Anonymous Author, 2026
 """
 
 import csv
