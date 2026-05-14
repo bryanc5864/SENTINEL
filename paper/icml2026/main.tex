@@ -228,6 +228,10 @@ The behavioral channel's near-perfect AUROC reflects controlled EPA ECOTOX label
 
 A modality-respecting encoder stack, asynchronous Perceiver~IO fusion, and a cost-aware cascade controller yield zero false positives across $8{,}739$ clean-site windows, $31/31$ events flagged ahead of advisories, and a fusion AUROC that significantly improves over the best single modality. We release the model stack, training scripts, and SENTINEL-DB as a community benchmark for multimodal environmental monitoring.
 
+\section*{Reproducibility Statement}
+
+All code, model weights, training configurations, and the SENTINEL-DB dataset are available in an anonymous repository at \url{https://anonymous.4open.science/r/SENTINEL-86EF}. Hyperparameters and training schedules are detailed in Appendix~\ref{app:hp}; baseline protocols in Appendix~\ref{app:baselines}. All experimental results are released as JSON/CSV files for independent verification.
+
 % Force all remaining floats out before references
 \FloatBarrier
 
