@@ -51,7 +51,7 @@ for Real-Time Water-Quality Monitoring}
 
 % =========================================================================
 \begin{abstract}
-Water contamination is detected today by a patchwork of single-modality systems---in-situ chemical sensors, satellite remote sensing, microbial assays, toxicogenomic screens, and behavioral biomonitors---that operate independently and cannot compensate for each other's blind spots. With 2.2 billion people lacking reliably safe drinking water and emerging pollutants outpacing existing detection, a unified multimodal approach is urgently needed. We present \textbf{SENTINEL}, a deep-learning stack that fuses all five modalities into a single waterway-state representation. SENTINEL pairs modality-specific encoders---continuous-time state-space models for irregularly sampled sensor streams, masked-autoencoder Vision Transformers for Sentinel-2 multispectral imagery, Aitchison-geometry transformers for compositional 16S rRNA microbial data, biology-constrained P-Net hierarchies for gene-expression toxicology, and diffusion-pretrained trajectory encoders for organism behavior---with a Perceiver~IO cross-attention fusion layer featuring learned per-modality temporal decay and confidence gating, and a PPO-trained cascade controller that activates expensive modalities only when warranted. To train and evaluate SENTINEL we release \textbf{SENTINEL-DB}, a harmonised, quality-tiered database of $390$\,M+ environmental records from 13 public sources covering 105 countries and 94k monitoring sites. On a 31-event historical contamination benchmark spanning algal blooms, industrial spills, hypoxic dead zones, and lead crises, full fusion attains AUROC~$0.992$ (95\% CI $[0.991, 0.993]$) versus $0.943$ for the best single modality ($p\!=\!1.6\!\times\!10^{-3}$). The system detects every event ahead of its public advisory date with a mean lead time of 32~days while producing zero false positives across 8,739 windows on ten clean reference sites. SENTINEL's cascade controller reduces deployment cost by selecting modalities adaptively, and its decision tree distillation enables GPU-free field operation. We release the code, model weights, and SENTINEL-DB as a community benchmark for multimodal environmental monitoring.
+Water contamination is detected today by single-modality systems---in-situ sensors, satellite remote sensing, microbial assays, toxicogenomic screens, and behavioral biomonitors---that operate independently and cannot compensate for each other's blind spots. With 2.2 billion people lacking reliably safe drinking water, a unified multimodal approach is urgently needed. We present \textbf{SENTINEL}, a deep-learning stack that fuses all five modalities into a single waterway-state representation. SENTINEL pairs modality-specific encoders---continuous-time SSMs for sensor streams, masked-autoencoder ViTs for Sentinel-2 imagery, Aitchison-geometry transformers for compositional microbial data, biology-constrained P-Net hierarchies for gene-expression toxicology, and diffusion-pretrained trajectory encoders for organism behavior---with a Perceiver~IO cross-attention fusion layer featuring learned per-modality temporal decay and confidence gating, and a PPO-trained cascade controller that activates expensive modalities only when warranted. To train and evaluate SENTINEL we release \textbf{SENTINEL-DB}, a harmonised database of $390$\,M+ records from 13 public sources covering 105 countries and 94k sites. On a 31-event historical contamination benchmark spanning algal blooms, industrial spills, and hypoxic dead zones, full fusion attains AUROC $0.992$ (95\% CI $[0.991, 0.993]$) versus $0.943$ for the best single modality ($p\!=\!1.6\!\times\!10^{-3}$). The system detects every event ahead of its public advisory date with a mean lead time of 32~days while producing zero false positives across 8,739 windows on ten clean reference sites. Decision tree distillation of the cascade controller enables GPU-free field deployment. We release code, model weights, and SENTINEL-DB as a community benchmark for multimodal environmental monitoring.
 \end{abstract}
 
 % =========================================================================
@@ -68,13 +68,7 @@ Multimodal fusion can exploit complementary information---our information audit 
 (iii)~SENTINEL-DB, a harmonised $390$M+ record database from 13 sources;
 (iv)~a 20-experiment evaluation including a 31-event historical benchmark with all results released as JSON/CSV.
 
-% =========================================================================
-\section{Related Work}
-\label{sec:related}
-
-ML-based water-quality monitoring treats single modalities in isolation: sensor anomaly detection~\citep{olden2008ml_ecology, guidotti2024watermlsurvey}, Sentinel-2 regression~\citep{drusch2012sentinel2}, microbial source tracking~\citep{thompson2017earthmicrobiome}, and gene-expression screening. Cross-modal benchmarks that span these domains are absent, and what fusion has been attempted is typically limited to two modalities trained on small bespoke datasets. Our architecture draws on Perceiver~IO~\citep{jaegle2022perceiverio} for modality-agnostic fusion, SSMs~\citep{gu2022s4, gu2024mamba} for irregular sequences, MAE/ViT~\citep{he2022mae, dosovitskiy2021vit} for spatial backbones, P-Net~\citep{elmarakeby2021pnet} for biology-constrained hierarchies, and Aitchison geometry~\citep{aitchison1982} for compositional data. We cast cost-aware modality activation as a finite-horizon MDP solved with PPO~\citep{schulman2017ppo}.
-
-% --- Architecture Fig 1: AquaSSM + HydroViT ---
+% --- Architecture Fig 1: declared here (page 1) so it floats to top of page 2 ---
 \begin{figure*}[t]
 \centering
 \begin{subfigure}[t]{0.48\textwidth}\includegraphics[width=\linewidth]{fig_aquassm.jpg}\caption{AquaSSM (sensor).}\label{fig:aquassm}\end{subfigure}\hfill
@@ -82,6 +76,12 @@ ML-based water-quality monitoring treats single modalities in isolation: sensor 
 \caption{Sensor and satellite encoders. AquaSSM places eight continuous-time SSM channels in parallel ($1$\,h--$365$\,d) for irregularly sampled streams. HydroViT MAE-pretrains a ViT-S/16 on $2{,}986$ Sentinel-2 tiles, then fine-tunes on $4{,}202$ satellite--in-situ pairs.}
 \label{fig:enc1}
 \end{figure*}
+
+% =========================================================================
+\section{Related Work}
+\label{sec:related}
+
+ML-based water-quality monitoring treats single modalities in isolation: sensor anomaly detection~\citep{olden2008ml_ecology, guidotti2024watermlsurvey}, Sentinel-2 regression~\citep{drusch2012sentinel2}, microbial source tracking~\citep{thompson2017earthmicrobiome}, and gene-expression screening. Cross-modal benchmarks that span these domains are absent, and what fusion has been attempted is typically limited to two modalities trained on small bespoke datasets. Our architecture draws on Perceiver~IO~\citep{jaegle2022perceiverio} for modality-agnostic fusion, SSMs~\citep{gu2022s4, gu2024mamba} for irregular sequences, MAE/ViT~\citep{he2022mae, dosovitskiy2021vit} for spatial backbones, P-Net~\citep{elmarakeby2021pnet} for biology-constrained hierarchies, and Aitchison geometry~\citep{aitchison1982} for compositional data. We cast cost-aware modality activation as a finite-horizon MDP solved with PPO~\citep{schulman2017ppo}.
 
 % =========================================================================
 \section{The SENTINEL Stack}
@@ -93,9 +93,18 @@ SENTINEL comprises five modality-specific encoders that project raw observations
 
 \textbf{HydroViT} (satellite) is a ViT-S/16 with MAE pretraining on $2{,}986$ Sentinel-2 L2A tiles (10 bands, 10/20\,m) and multi-resolution cross-attention fusing the $10$\,m and $20$\,m bands (Figure~\ref{fig:hydrovit}). Water temperature $R^2\!=\!0.893$ ($+0.009$ vs.\ DenseNet121); a spectral-physics auxiliary loss enforces known band-ratio relationships.
 
+% --- ToxiGene + BioMotion: declared early so it floats near method text ---
+\begin{figure*}[!t]
+\centering
+\begin{subfigure}[t]{0.52\textwidth}\includegraphics[width=\linewidth]{fig_toxigene.png}\caption{ToxiGene ($145.2$M params).}\label{fig:toxigene}\end{subfigure}\hfill
+\begin{subfigure}[t]{0.46\textwidth}\includegraphics[width=\linewidth]{fig_biomotion.jpg}\caption{BioMotion ($3$M params).}\label{fig:biomotion}\end{subfigure}
+\caption{Molecular and behavioral encoders. (a)~ToxiGene routes RNA-seq through a Reactome-constrained gene$\rightarrow$pathway$\rightarrow$process$\rightarrow$outcome hierarchy with sparse connections and an autoencoder bottleneck. (b)~BioMotion uses diffusion pretraining on healthy \emph{Daphnia} trajectories; denoising reconstruction error serves as a toxicant-exposure score.}
+\label{fig:enc2}
+\end{figure*}
+
 \textbf{MicroBiomeNet} (microbial) is an Aitchison-geometry transformer for compositional OTU tables (Figure~\ref{fig:microbe}). CLR-aware batch norm, a zero-inflation gate, a simplex neural ODE for temporal dynamics, and DNABERT-S~\citep{zhou2024dnaberts} OTU embeddings. Trained on $20{,}288$ Earth Microbiome Project~\citep{thompson2017earthmicrobiome} samples; macro-F$_1\!=\!0.899$ on 8-class source attribution.
 
-% --- MicroBiomeNet figure ---
+% --- MicroBiomeNet figure (single-column) ---
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.85\linewidth,height=10cm,keepaspectratio]{fig_microbiomenet.jpg}
@@ -106,15 +115,6 @@ SENTINEL comprises five modality-specific encoders that project raw observations
 \textbf{ToxiGene} (molecular) is a $145.2$M-param biology-constrained P-Net~\citep{elmarakeby2021pnet} hierarchy: gene$\rightarrow$pathway$\rightarrow$process$\rightarrow$outcome with Reactome sparsity masks and an autoencoder bottleneck (Figure~\ref{fig:toxigene}). Cross-species ortholog alignment enables transfer between zebrafish, \emph{Daphnia magna}, and fathead minnow. First-in-class 7-class toxicant classification from RNA-seq; macro-F$_1\!=\!0.877$.
 
 \textbf{BioMotion} (behavioral) uses diffusion pretraining~\citep{ho2020ddpm} on healthy \emph{Daphnia} trajectories with per-species keypoint configurations (Figure~\ref{fig:biomotion}). At inference, denoising reconstruction error flags toxicant exposure. AUROC~$1.000$ on $17{,}074$ EPA ECOTOX assays ($+0.042$ vs.\ Deep Autoencoder).
-
-% --- ToxiGene + BioMotion ---
-\begin{figure*}[!t]
-\centering
-\begin{subfigure}[t]{0.52\textwidth}\includegraphics[width=\linewidth]{fig_toxigene.png}\caption{ToxiGene ($145.2$M params).}\label{fig:toxigene}\end{subfigure}\hfill
-\begin{subfigure}[t]{0.46\textwidth}\includegraphics[width=\linewidth]{fig_biomotion.jpg}\caption{BioMotion ($3$M params).}\label{fig:biomotion}\end{subfigure}
-\caption{Molecular and behavioral encoders. (a)~ToxiGene routes RNA-seq through a Reactome-constrained gene$\rightarrow$pathway$\rightarrow$process$\rightarrow$outcome hierarchy with sparse connections and an autoencoder bottleneck. (b)~BioMotion uses diffusion pretraining on healthy \emph{Daphnia} trajectories; denoising reconstruction error serves as a toxicant-exposure score.}
-\label{fig:enc2}
-\end{figure*}
 
 \subsection{Asynchronous Fusion and Cascade Control}
 \label{sec:fusion}
@@ -184,7 +184,29 @@ BioMotion & $1.00\;[1.00,1.00]$ & DeepAE $.958$ & $+.042$ \\
 \end{table}
 
 \textbf{Fusion and ablation.}
-Full 5-modality fusion attains \textbf{AUROC $0.9919$} (95\% bootstrap CI $[0.9907, 0.9934]$), against $0.9429$ for sensor-only ($p\!=\!1.6\!\times\!10^{-3}$, paired permutation, $n_\text{perm}\!=\!10{,}000$). An exhaustive $2^5\!-\!1\!=\!31$ subset sweep and $100$ random-drop trials (Appendix~\ref{app:ablation}) show average marginal contributions: sensor $-0.246$, behavioral $-0.174$, satellite $-0.111$, microbial $-0.077$, molecular $-0.031$. Mean AUROC rises with cardinality: $|\mathcal{M}|\!=\!1\!:\!0.725$, $2\!:\!0.849$, $3\!:\!0.913$, $4\!:\!0.952$, $5\!:\!0.992$. Sensor and behavioral carry most of the discriminative signal; microbial and molecular are largely redundant for detection but crucial for source attribution.
+Full 5-modality fusion attains \textbf{AUROC $0.9919$} (95\% bootstrap CI $[0.9907, 0.9934]$), against $0.9429$ for sensor-only ($p\!=\!1.6\!\times\!10^{-3}$, paired permutation, $n_\text{perm}\!=\!10{,}000$). An exhaustive $2^5\!-\!1\!=\!31$ subset sweep and $100$ random-drop trials (Table~\ref{tab:ablation_main}) show average marginal contributions: sensor $-0.246$, behavioral $-0.174$, satellite $-0.111$, microbial $-0.077$, molecular $-0.031$. Mean AUROC rises with cardinality: $|\mathcal{M}|\!=\!1\!:\!0.725$, $2\!:\!0.849$, $3\!:\!0.913$, $4\!:\!0.952$, $5\!:\!0.992$. Sensor and behavioral carry most of the discriminative signal; microbial and molecular are largely redundant for detection but crucial for source attribution. Full ablation details and additional subset combinations are in Appendix~\ref{app:ablation}.
+
+\begin{table}[t]
+\caption{Modality ablation: detection AUROC on the windowed 31-event benchmark. Best within each cardinality group bolded.}
+\label{tab:ablation_main}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Subset} & $|\mathcal{M}|$ & \textbf{AUROC} \\
+\midrule
+Molecular only & 1 & $0.501$ \\
+Satellite only & 1 & $0.728$ \\
+Behavioral only & 1 & $0.842$ \\
+\textbf{Sensor only} & \textbf{1} & $\mathbf{0.943}$ \\
+\midrule
+\textbf{Sensor+Behavioral} & \textbf{2} & $\mathbf{0.991}$ \\
+S+Sat+Mol+B & 4 & $0.992$ \\
+\textbf{All five} & \textbf{5} & $\mathbf{0.992}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \textbf{Historical benchmark.}
 The benchmark spans 31 contamination events: algal blooms on Lake Erie, Chesapeake Bay, Klamath River; industrial spills on the Animas River and East Palestine; and hypoxia-driven events including the Gulf of Mexico dead zone. SENTINEL detects \emph{every} event ahead of its public advisory date with a mean lead time of $32$~days (Figure~\ref{fig:earlywarning}), ranging from $3.3$\,d (Toledo) to $87$\,d (Chesapeake hypoxia 2018). Events with nutrient-loading causal pathways are flagged tens of days early; sudden chemical spills are caught only days early because their causal lag is short.
